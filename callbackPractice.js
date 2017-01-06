@@ -102,10 +102,10 @@ contains(names, 'Colt', function(result) {
 var uniq = function(names, cb) {
     var newArray = names;
     newArray.sort();
-    for (var i = 0; i < newArray.length; i++) {
-      if (i !== newArray.length - 1 && newArray[i] === newArray[i + 1]) {
-        newArray.splice(i, 1);
-      }
+    for (var i = newArray.length - 1; i >= 0; i--) {
+        if (i !== 0 && newArray[i] === newArray[i - 1]) {
+            newArray.splice(i, 1);
+        }
     }
     cb(newArray);
 }
